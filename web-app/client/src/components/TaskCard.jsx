@@ -13,6 +13,7 @@ import { BiMessageAltDetail } from "react-icons/bi";
 import { FaList } from "react-icons/fa";
 import UserInfo from "./UserInfo";
 import { IoMdAdd } from "react-icons/io";
+import AddSubTask from './task/AddSubTask'
 
 const ICONS = {
   high: <MdKeyboardDoubleArrowUp />,
@@ -38,7 +39,8 @@ const TaskCard = ({ task }) => {
             <span className='uppercase'>{task?.priority} Priority</span>
           </div>
 
-          {user?.isAdmin && <TaskDialog task={task} />}
+          {/* user?.isAdmin &&  */}
+          <TaskDialog task={task} />
         </div>
 
         <>
@@ -121,7 +123,7 @@ const TaskCard = ({ task }) => {
         </div>
       </div>
 
-      {/* <AddSubTask open={open} setOpen={setOpen} id={task._id} /> */}
+      <AddSubTask open={open} setOpen={setOpen} id={task._id} />
     </>
   );
 };

@@ -13,6 +13,7 @@ import clsx from "clsx";
 import { FaList } from "react-icons/fa";
 import UserInfo from "../UserInfo";
 import Button from "../Button";
+import ConfirmatioDialog from "../Dialogs";
 
 const ICONS = {
     high: <MdKeyboardDoubleArrowUp />,
@@ -138,6 +139,13 @@ const Table = ({ tasks }) => {
                 </table>
             </div>
         </div>
+
+        {/* TODO */}
+      <ConfirmatioDialog
+        open={openDialog}
+        setOpen={setOpenDialog}
+        onClick={deleteHandler}
+      />
     </>
   )
 }
