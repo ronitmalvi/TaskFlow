@@ -4,14 +4,23 @@ import { useNavigate } from "react-router-dom";
 import Textbox from "../components/Textbox";
 import Button from "../components/Button";
 import { useSelector } from "react-redux";
+import { useLoginMutation } from "../redux/slices/api/authApiSlice";
 const Login = () => {
   const {user}=useSelector((state)=>state.auth);
   const {register,handleSubmit,formState:{errors}}=useForm();
+  
+  const navigate = useNavigate();
+  const [login,{isLoading}]=useLoginMutation()
 
   const submitHandler = async (data) => {
-    console.log("submit");
+    try {
+      const result=await login(data).unwrap();
+      console.log(result);
+    } catch (error) {
+      console.log(error)
+      TransformStream.error(error?.data?.message || error.message)
+    }
   };
-  const navigate = useNavigate();
   useEffect(()=>{
     user && navigate("/dashboard")
   },[user]);

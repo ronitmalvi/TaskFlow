@@ -127,7 +127,7 @@ export const updateUserProfile = async (req, res) => {
     const { _id } = req.body;
 
     const id =
-      isAdmin && userId === _id
+      isAdmin && userId === _id 
         ? userId
         : isAdmin && userId !== _id
         ? _id

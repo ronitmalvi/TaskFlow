@@ -21,8 +21,6 @@ function Layout(){
   const location=useLocation()
 
   return user ? (
-    <Navigate to="/log-in" state={{from:location}} replace/>
-  ):(
     <div className='w-full h-screen flex flex-col md:flex-row'>
       <div className='w-1/5 h-screem bg-[#d09171] sticky top-0 hidden md:block border-r-2 border-[#a46f5c]'>
       <Sidebar/>
@@ -36,6 +34,8 @@ function Layout(){
         </div>
       </div>
     </div>
+  ):(
+    <Navigate to="/log-in" state={{from:location}} replace/>
   )
 }
 
